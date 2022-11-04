@@ -18,6 +18,7 @@ namespace config
 		false, "", 100, true,
 		true, 0,
 		true,
+		240,
 	};
 
 	void load()
@@ -44,6 +45,7 @@ namespace config
 			CJCONFIG_READ_PROPERTY(aoharu_team_sort_with_speed, j, config);
 			CJCONFIG_READ_PROPERTY(aoharu_print_team_average_status_max_turn, j, config);
 			CJCONFIG_READ_PROPERTY(climax_print_shop_items, j, config);
+			CJCONFIG_READ_PROPERTY(max_fps, j, config);
 
 			std::cout << "Loaded cjconfig.json\n";
 		}

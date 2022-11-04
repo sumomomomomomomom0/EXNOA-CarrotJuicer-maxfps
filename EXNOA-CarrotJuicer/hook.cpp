@@ -12,6 +12,8 @@
 #include "notifier.hpp"
 #include "requests.hpp"
 
+#include "il2cpp_symbols.hpp"
+
 using namespace std::literals;
 
 namespace
@@ -124,9 +126,29 @@ namespace
 		return ret;
 	}
 
+	void* set_fps_orig = nullptr;
+	
+	void set_fps_hook(int value) {
+		return reinterpret_cast<decltype(set_fps_hook)*>(set_fps_orig)(config::get().max_fps);
+	}
+
 	void bootstrap_carrot_juicer()
 	{
 		std::filesystem::create_directory("CarrotJuicer");
+		const auto il2cpp_module = GetModuleHandle(L"GameAssembly.dll");
+
+		// load il2cpp exported functions
+		il2cpp_symbols::init(il2cpp_module);
+
+		auto set_fps_addr = il2cpp_resolve_icall("UnityEngine.Application::set_targetFrameRate(System.Int32)");
+		const auto set_fps_ptr = reinterpret_cast<void*>(set_fps_addr);
+		printf("set_fps at %p\n", set_fps_addr);
+		if (set_fps_ptr == nullptr)
+		{
+			return;
+		}
+		MH_CreateHook(set_fps_ptr, set_fps_hook, &set_fps_orig);
+		MH_EnableHook(set_fps_ptr);
 
 		const auto libnative_module = GetModuleHandle(L"libnative.dll");
 		printf("libnative.dll at %p\n", libnative_module);
@@ -152,6 +174,8 @@ namespace
 		}
 		MH_CreateHook(LZ4_compress_default_ext_ptr, LZ4_compress_default_ext_hook, &LZ4_compress_default_ext_orig);
 		MH_EnableHook(LZ4_compress_default_ext_ptr);
+
+
 	}
 
 	void* load_library_w_orig = nullptr;

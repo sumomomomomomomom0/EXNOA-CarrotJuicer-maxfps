@@ -21,6 +21,8 @@ namespace config
 		int aoharu_print_team_average_status_max_turn;
 
 		bool climax_print_shop_items;
+
+		int max_fps;
 	};
 
 	void load();

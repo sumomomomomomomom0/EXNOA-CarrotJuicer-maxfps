@@ -112,6 +112,7 @@
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="edb.cpp" />
     <ClCompile Include="hook.cpp" />
+    <ClCompile Include="il2cpp_symbols.cpp" />
     <ClCompile Include="mdb.cpp" />
     <ClCompile Include="notifier.cpp" />
     <ClCompile Include="proxy.cpp" />
@@ -127,11 +128,13 @@
   <ItemGroup>
     <ClInclude Include="config.hpp" />
     <ClInclude Include="edb.hpp" />
+    <ClInclude Include="il2cpp_symbols.hpp" />
     <ClInclude Include="mdb.hpp" />
     <ClInclude Include="notifier.hpp" />
     <ClInclude Include="requests.hpp" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="responses.hpp" />
+    <ClInclude Include="stdinclude.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="EXNOA-CarrotJuicer.rc" />

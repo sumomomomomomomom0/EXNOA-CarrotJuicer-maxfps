@@ -34,6 +34,9 @@
     <Filter Include="Source Files\requests">
       <UniqueIdentifier>{5848b94d-eb36-4a6f-bc2d-a86f927e937b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\il2cpp_symbols">
+      <UniqueIdentifier>{2a516bd3-f22f-456d-ac26-213ecbfdfa28}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -62,6 +65,9 @@
     </ClCompile>
     <ClCompile Include="requests.cpp">
       <Filter>Source Files\requests</Filter>
+    </ClCompile>
+    <ClCompile Include="il2cpp_symbols.cpp">
+      <Filter>Source Files\il2cpp_symbols</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -95,6 +101,12 @@
     </ClInclude>
     <ClInclude Include="requests.hpp">
       <Filter>Source Files\requests</Filter>
+    </ClInclude>
+    <ClInclude Include="il2cpp_symbols.hpp">
+      <Filter>Source Files\il2cpp_symbols</Filter>
+    </ClInclude>
+    <ClInclude Include="stdinclude.hpp">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
